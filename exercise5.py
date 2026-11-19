@@ -34,7 +34,15 @@ class VigenereCipher:
         str
             The shifted letter.
         """
-        shifted_letter = ''
+        if forward:
+            new_offset = ord(letter)
+            new_offset += shift
+            shifted_letter = chr(new_offset)
+        else:
+            new_offset = ord(letter)
+            new_offset -= shift
+            shifted_letter = chr(new_offset)
+        
         return shifted_letter
 
     def __generate_shift_list(self, plaintext_length: int):
